@@ -87,7 +87,7 @@ def attendance(predictions):
     header = ['Staff_ID','Staff_Name','Department','Time1','Time2','Time3','Time4','Time5']
     # reading the csv file
     try:
-        df = pd.read_csv('/home/srec/Desktop/FaceRPI/'+get_date()+".csv")
+        df = pd.read_csv('/home/srec/Desktop/FaceRPI/data/'+get_date()+".csv")
         #print("read")
     except:
         df = pd.DataFrame(columns=header)
@@ -135,7 +135,7 @@ def show_prediction_labels_on_image(frame, predictions):
         opencvimage=cv2.putText(opencvimage, time,(95,195),cv2.FONT_HERSHEY_SIMPLEX,0.9,(0,255,0),2)
         if predictions[0][0]not in Namelst and predictions[0][0] !="unknown":
             df1=attendance(predictions)
-            df1.to_csv('/home/srec/Desktop/FaceRPI/'+get_date()+".csv",index=False)
+            df1.to_csv('/home/srec/Desktop/FaceRPI/data/'+get_date()+".csv",index=False)
             Namelst.append(predictions[0][0])
             print(Namelst)
     except Exception as e:
@@ -205,7 +205,7 @@ def Train_Recognize(thresh):
         #img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
         process_this_frame = process_this_frame + 1
         if process_this_frame % 60 == 0:
-            predictions1 = predict(img, model_path="/home/srec/Desktop/FaceRPI/trained_knn_model.clf", distance_threshold=thresh)
+            predictions1 = predict(img, model_path="/home/srec/Desktop/FaceRPI/model/trained_knn_model.clf", distance_threshold=thresh)
         frame = show_prediction_labels_on_image(frame, predictions1)
         #cv2.resize(frame,(480,320))
         cv2.namedWindow("camera",cv2.WINDOW_NORMAL)
@@ -224,7 +224,7 @@ def Train_Recognize(thresh):
             if get_time()=="10:30":
                 break
             elif get_time()=="19:50":
-                storage.child("/Attendance/"+get_date()+"_6.csv").put('/home/srec/Desktop/FaceRPI/'+get_date()+".csv")
+                storage.child("/Attendance/"+get_date()+"_6.csv").put('/home/srec/Desktop/FaceRPI/data/'+get_date()+".csv")
             break
             
         if cv2.waitKey(1)&0xff==27:

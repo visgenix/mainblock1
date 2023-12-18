@@ -33,7 +33,7 @@ def takeImages(Name):
 
 
         cam = cv2.VideoCapture(0)
-        harcascadePath = "/home/srec/Desktop/FaceRPI/haarcascade_frontalface_default.xml"
+        harcascadePath = "/home/srec/Desktop/FaceRPI/mainblock1/model/haarcascade_frontalface_default.xml"
         detector = cv2.CascadeClassifier(harcascadePath)
         sampleNum = 0
         os.makedirs("/home/srec/Desktop/FaceRPI/TrainingImage/"+str(Name))
@@ -41,6 +41,7 @@ def takeImages(Name):
         while(True):
             ret, img = cam.read()
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            gray = cv2.flip(gray, 1)
             faces = detector.detectMultiScale(gray, 1.3, 5, minSize=(30,30),flags = cv2.CASCADE_SCALE_IMAGE)
             for(x,y,w,h) in faces:
                 cv2.rectangle(img, (x, y), (x+w, y+h), (10, 159, 255), 2)
