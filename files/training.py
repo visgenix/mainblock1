@@ -64,7 +64,7 @@ def train(train_dir, model_save_path=None, n_neighbors=None, knn_algo='ball_tree
     return knn_clf
 def training():
     print("Training KNN classifier...")
-    classifier = train("TrainingImage/", model_save_path="/home/srec/Desktop/FaceRPI/model/trained_knn_model.clf", n_neighbors=2)
+    classifier = train("/home/srec/Desktop/FaceRPI/TrainingImage/", model_save_path="/home/srec/Desktop/FaceRPI/model/trained_knn_model.clf", n_neighbors=2)
     git_add_commit_push(repo_path='/home/srec/Desktop/FaceRPI/model',commit_message="Model Training Update Working")
     print("Training complete!")
     print("Model file Pushed to GitHub")
