@@ -67,3 +67,4 @@ def training():
     classifier = train("TrainingImage/", model_save_path="/home/srec/Desktop/FaceRPI/model/trained_knn_model.clf", n_neighbors=2)
     git_add_commit_push(repo_path='/home/srec/Desktop/FaceRPI/model',commit_message="Model Training Update Working")
     print("Training complete!")
+    print("Model file Pushed to GitHub")
