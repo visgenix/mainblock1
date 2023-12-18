@@ -3,7 +3,7 @@ def camer():
     import cv2
 
     # Load the cascade
-    face_cascade = cv2.CascadeClassifier('/home/srec/Desktop/FaceRPI/mainblock1/model/haarcascade_frontalface_default.xml')
+    face_cascade = cv2.CascadeClassifier('/home/srec/Desktop/FaceRPI/model/haarcascade_frontalface_default.xml')
 
     # To capture video from webcam.
     cap = cv2.VideoCapture(0)
