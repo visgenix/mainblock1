@@ -19,9 +19,9 @@ def git_add_commit_push(repo_path, commit_message):
     # Commit changes
     commit_result = run_git_command(f"git commit -m \"{commit_message}\"")
     print("Git Commit Result:\n", commit_result)
-
-    # Push changes
-    push_result = run_git_command("git push")
+            
+    push_result = run_git_command(f"git push https://visgenix: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@github.com/visgenix/model.git")
     print("Git Push Result:\n", push_result)
+
 
 
