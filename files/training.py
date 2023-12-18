@@ -4,7 +4,7 @@ from sklearn import neighbors
 import pickle
 import face_recognition
 from face_recognition.face_recognition_cli import image_files_in_folder
-
+from git_push import git_add_commit_push
 
 def train(train_dir, model_save_path=None, n_neighbors=None, knn_algo='ball_tree', verbose=False):
     
@@ -65,4 +65,5 @@ def train(train_dir, model_save_path=None, n_neighbors=None, knn_algo='ball_tree
 def training():
     print("Training KNN classifier...")
     classifier = train("TrainingImage/", model_save_path="/home/srec/Desktop/FaceRPI/model/trained_knn_model.clf", n_neighbors=2)
+    git_add_commit_push(repo_path='/home/srec/Desktop/FaceRPI/model',commit_message="Model Training Update Working")
     print("Training complete!")
