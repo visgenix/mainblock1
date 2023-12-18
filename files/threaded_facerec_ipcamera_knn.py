@@ -189,7 +189,9 @@ class WebcamVideoStream:
 def Train_Recognize(thresh):
     repo_path = '/home/srec/Desktop/FaceRPI/mainblock1'
     check_and_pull_repo(repo_path)
-    
+    repo_path = '/home/srec/Desktop/FaceRPI/model'
+    check_and_pull_repo(repo_path)
+
     #training()
     # process one frame in every 60 frames for speed
     process_this_frame = 59
