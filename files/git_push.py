@@ -8,9 +8,13 @@ def run_git_command(command):
     except subprocess.CalledProcessError as e:
         return e.output.decode().strip()
 
-def git_add_commit_push(repo_path, commit_message):
+def git_add_commit_push(repo_path, commit_message,private_key_path):
     # Change to the repository directory
     os.chdir(repo_path)
+    
+    # Set the GIT_SSH_COMMAND to use the specified private key
+    git_ssh_command = f"ssh -i {private_key_path}"
+    os.environ["GIT_SSH_COMMAND"] = git_ssh_command
 
     # Add changes
     add_result = run_git_command("git add .")
@@ -19,9 +23,10 @@ def git_add_commit_push(repo_path, commit_message):
     # Commit changes
     commit_result = run_git_command(f"git commit -m \"{commit_message}\"")
     print("Git Commit Result:\n", commit_result)
-            
-    push_result = run_git_command(f"git push https://visgenix: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@github.com/visgenix/model.git")
+                                                                                                
+    push_result = run_git_command(f"git push")
     print("Git Push Result:\n", push_result)
+
 
 
 

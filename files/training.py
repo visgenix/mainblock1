@@ -66,7 +66,7 @@ def training():
     print("Training KNN classifier...")
     classifier = train("/home/srec/Desktop/FaceRPI/TrainingImage/", model_save_path="/home/srec/Desktop/FaceRPI/model/trained_knn_model.clf", n_neighbors=2)
     try:
-        git_add_commit_push(repo_path='/home/srec/Desktop/FaceRPI/model',commit_message="Model Training Update Working")
+        git_add_commit_push(repo_path='/home/srec/Desktop/FaceRPI/model',commit_message="Model Training Update Working",private_key_path="ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFIPFrfG8k4l2UzxOzYNDy+eFvn/pPdLhhOE4DVip5HU facialrecognitionsrec@gmail.com")
         print("Training complete!")
         print("Model file Pushed to GitHub")
     except:
