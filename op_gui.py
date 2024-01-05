@@ -124,7 +124,7 @@ def show_pickle_window():
                     data.append(item)
             combo_box['values'] = data
 
-    with open('/home/srec/Desktop/FaceRPI/mb_device2/configs/staff_name.csv', 'r') as f:
+    with open('/home/srec/Desktop/FaceRPI/mb_device1/configs/staff_name.csv', 'r') as f:
         lst = f.read().split('\n')
             
     combo_box = ttk.Combobox(rootT,width=30, height=5)
@@ -158,7 +158,7 @@ if __name__ == '__main__':
     root.attributes('-fullscreen', True)
     root.title('Visgenix')
 
-    img = Image.open("/home/srec/Desktop/FaceRPI/mb_device2/asset/Visgenix Logo-01.png")
+    img = Image.open("/home/srec/Desktop/FaceRPI/mb_device1/asset/Visgenix Logo-01.png")
     img = img.resize((105, 110))
     bg = ImageTk.PhotoImage(img)
 
